@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <form th:action="@{/updateUsers}" th:object="${userData}" method="post" class="form">
+<!--        @{/updateUsers/{id}(id=${userData.id})}"-->
+
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{username}" placeholder="title">
+            </div>
+        </div>
+        <br>
+
+
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{email}" placeholder="t">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{password}" placeholder="password">
+            </div>
+        </div>
+        <br>
+
+
+<!--        <div class="row">-->
+<!--            <div class="col">-->
+<!--                <input type="text" class="form-control"  th:fild="*{role}" >-->
+<!--            </div>-->
+<!--        </div>-->
+        <br>
+
+    <div class="row">
+        <select class="form-control"  th:field="*{role}"  id="example">
+<!--            <option>roleList</option>-->
+            <option th:each="list: ${roleList}" th:value="${list.id}" th:text="${list.name}" >
+            </option>
+        </select>
+    </div>
+        <br>
+
+        <br>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">save</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

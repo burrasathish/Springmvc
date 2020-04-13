@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <form th:action="@{/save-posts}" modelAttribute="posts" th:object="${posts}" method="post" class="form"
+
+
+          target="_parent">
+        <div class="row">
+            <div class="col">
+
+                <p><input type="text" class="form-control" th:field="*{title}" placeholder="title"></p>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <p><input type="text" class="form-control" th:field="*{excerpt}" placeholder="excert"></p>
+            </div>
+            </div>
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <p><input type="text" class="form-control" th:field="*{content}" placeholder="content"></p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <!--                <input type="text" class="form-control" placeholder="authore">-->
+
+                <select class="form-control" name="example" th:field="*{author}" id="example">
+                    <option value="0">Author</option>
+                    <option th:each="user : ${listUsers}" th:value="${user.id}" th:text="${user.username}">
+                    </option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <input type="text" class="form-control" th:field="${tags.tagName}" placeholder="tag">
+        <div class="row">
+            <input th:field="*{is_published}" type="checkbox">publish
+            <button type="submit" value="publish" class="btn btn-primary">Publish Article</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <form th:action="@{/update-posts}" th:object="${post}" method="post" class="form"
+          target="_parent">
+<!--        "@{/update-posts/{id}(id=${post.id})}"-->
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{title}" placeholder="title">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{excerpt}" placeholder="excert">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{content}" placeholder="content">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <input type="hidden" class="form-control" th:field="*{is_published}" placeholder="content">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{author}" placeholder="authore">
+
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">save</button>
+            <button type="submit" class="btn btn-primary">Publish Article</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

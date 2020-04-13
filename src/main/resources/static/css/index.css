@@ -1,0 +1,32 @@
+.my_menu .navbar-default{background:none; border:black;}
+.my_menu .navbar-nav .active a, my_menu .navbar-nav .active a:hover{background:#333399; color:#fff;}
+.my_menu .navbar-nav li a:hover{color:#333399;}
+.my_menu .pull-right{float:none important;}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 12px;
+    border:0;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4CAF50;
+    font-size: 12px;
+    min-width: 200px;
+    z-index: 1;
+}
+#main{
+    transition:margin-left 0.0s;
+    padding:20px;
+    overflow:hidden;
+    width:100%;
+}
+
+

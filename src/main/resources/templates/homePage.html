@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+       layout:decorator="layout">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <title>Blog</title>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row" style="padding-top: 1%;">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3" style="padding-bottom:0%;">
+            <h3>User Page</h3>
+        </div>
+
+        <div class="col-sm-4"></div>
+        <div class="col-sm-3 my_menu">
+            <nav class="navbar navbar-default  sidebarNavigation" data-sidebarClass="navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="nav navbar-nav pull-left">
+                        <li class="active"><a href="/home" target="main-body">HOME</a></li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/showAdmin"target="user-body">UserList</a></li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/Global" target="user-body">GlobalPost</a></li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="">saved post</a></li>
+                        <li sec:authorize="hasRole('ROLE_USER')"><a href="" target="main-body">GlobalFeeds</a></li>
+                        <li sec:authorize="hasRole('ROLE_USER')"><a href="/home" target="user-body" >UserFeeds</a></li>
+                        <li sec:authorize="hasRole('ROLE_USER')"><a href="/postForm" target="user-body" style="border:none;" >AddPost</a></li>
+                        <li sec:authorize="isAuthenticated()"><a  th:href="@{/logout}" target="user-body"> logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+<!--            <p th:text="${}" style="font-size: 20px;"></p>-->
+            <li sec:authorize="isAuthenticated()" class="show-username"  style="style:none;"><span sec:authentication="name"></span></li>
+
+
+        </div>
+        <div class="col-sm-7"></div>
+</div>
+<iframe width="80%" height="700px" name="user-body" style="margin-left:10%;"></iframe>
+</div>
+
+
+</body>
+</html>

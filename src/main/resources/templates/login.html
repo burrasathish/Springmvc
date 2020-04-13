@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="loginForm" modelAttribute="users" th:object="${users}" method="post" class="form"
+          target="_parent">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{username}" placeholder="email">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" th:field="*{password}" placeholder="password">
+            </div>
+        </div>
+        <br>
+        <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+    </form></div>
+</body>
+</html>
